@@ -11,11 +11,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="%PUBLIC_URL%/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="%PUBLIC_URL%/css/custom.css">
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-  <body>
+  <body style="max-height: 100%">
     <noscript>
       Please turn on JavaScript you IE6 user or annoying "JavaScript free web experience" hippy.
     </noscript>
@@ -31,5 +32,15 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script type="text/javascript" src="%PUBLIC_URL%/js/materialize.min.js"></script>
+    <script>
+      M.AutoInit();
+      var elem = document.querySelector('.autocomplete');
+      var instance = M.Autocomplete.init(elem, {});
+      instance.updateData({
+        "Apple": null,
+        "Microsoft": null,
+        "Google": null
+      });
+    </script>
   </body>
 </html>
