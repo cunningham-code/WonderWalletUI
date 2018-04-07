@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Favorites from './favorites.js'
 import Profile from './profile.js'
+import Autocomplete from 'react-autocomplete'
 
 const favoritesArray = [
   {
@@ -178,22 +179,29 @@ class App extends Component {
                   </div>
                 </div>
                 <div className="row formRow">
+
                   <div className="input-field col s12 m6">
-                    <i className="material-icons prefix">present_to_all</i>
-                    <select className="icons" id="crypto">
-                      <option value="" className="disabled selected">Choose Your Token</option>
-                      <option value="APPC" data-icon="images/appcoins.png" className="left">AppCoins (APPC)</option>
-                      <option value="EOS" data-icon="images/eos.png" className="left">EOS (EOS)</option>
-                      <option value="LRC" data-icon="images/loopring.png" className="left">Loopring (LRC)</option>
-                      <option value="SNOV" data-icon="images/snovio.png" className="left">Snovio (SNOV)</option>
-                      <option value="WETH" data-icon="images/weth.png" className="left">WETH (WETH)</option>
-                    </select>
+                  <label for="autocomplete-input">Ticker Lookup</label>
+                  <Autocomplete
+                    getItemValue={(item) => item.label}
+                    items={[
+                      { label: 'AppCoins' },
+                      { label: 'EOS' },
+                      { label: 'Loopring' },
+                      { label: 'Snovio' },
+                      { label: 'WETH' }
+                    ]}
+                    renderItem={(item, isHighlighted) =>
+                      <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+                        {item.label}
+                      </div>
+                    }
+                    value={this.state.value}
+                    onChange={e => this.setState({ value: e.target.value })}
+                    onSelect={value => this.setState({ value })}
+                  />
                   </div>
-                  <div className="input-field col s12 m5">
-                      <i className="material-icons prefix">textsms</i>
-                      <input type="text" id="autocomplete-input" className="autocomplete"></input>
-                      <label for="autocomplete-input">Ticker Lookup</label>
-                  </div>
+
                 </div>
               </form>
             </div>
