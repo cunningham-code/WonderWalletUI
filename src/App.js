@@ -57,7 +57,7 @@ class App extends Component {
                       <label for="password">Password</label>
                     </div>
                   </div>
-                    <button className="btn waves-effect waves-light" type="submit" name="action">Generate My Keystore</button>
+                    <button onClick={() => this.setState({screen: 2}) } className="btn waves-effect btn-black btn-bottom waves-light" >Generate My Keystore</button>
                 </form>
 
                 <div className="preloader-wrapper active hide">
@@ -78,11 +78,16 @@ class App extends Component {
                 </div>
 
                 <div className="container hide">
-                  <a href="/" download className="waves-effect waves-light btn-large"><i className="material-icons">file_download</i>Download My Keystore</a>
+                  <p onClick={() => this.setState({screen: 2}) } className="waves-effect btn-black btn-bottom waves-light btn-large"><i className="material-icons">file_download</i>Download My Keystore</p>
                 </div>
-
-                <h5 onClick={() => this.setState({screen: 1}) }>Upload an existing keystore</h5>
-
+                <div className="chipz">
+                  <div className="chip chip-custom active-chip">
+                    Create A Keystore
+                  </div>
+                  <div onClick={() => this.setState({screen: 1}) } className="chip chip-custom">
+                    Upload A Keystore
+                  </div>
+                </div>
               </div>
             </div>
             </div>
@@ -101,12 +106,12 @@ class App extends Component {
               <div className="row formRow">
                 <div className="col m3"></div>
                 <div className="col s12 m6 file-field input-field">
-                  <div className="btn">
+                  <div className="btn btn-black">
                     <span>File</span>
                     <input id="file" type="file"></input>
                   </div>
                   <div className="file-path-wrapper">
-                    <input id="filename" className="file-path validate" type="text" value="Upload Keystore Here"></input>
+                    <input id="filename" className="btn-black file-path validate" type="text" value="Upload Keystore Here"></input>
                   </div>
                 </div>
               </div>
@@ -118,9 +123,16 @@ class App extends Component {
                   <label for="password">Password</label>
                 </div>
               </div>
-                <button className="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+                <button onClick={() => this.setState({screen: 2}) } className="btn btn-black btn-bottom waves-effect waves-light" >Submit</button>
             </form>
-            <h5 onClick={() => this.setState({screen: 0}) }>Create A Keystore</h5>
+            <div className="chipz">
+              <div onClick={() => this.setState({screen: 0}) } className="chip chip-custom">
+                Create A Keystore
+              </div>
+              <div className="chip chip-custom active-chip">
+                Upload A Keystore
+              </div>
+            </div>
           </div>
         </div>
         </div>
@@ -131,7 +143,6 @@ class App extends Component {
           <div className="row topRow center-align">
             <div className="wonder center-align">W&#0246;nderWallet</div>
             <div className="tagline center-align">It is time to blockchain human again</div>
-            <a className="waves-effect btn-flat className=y-btn" onClick={() => this.setState({screen: 0}) }>Sign Out</a>
           </div>
           <div className="scrollmenu">
             <Favorites favoritesArray={ favoritesArray } />

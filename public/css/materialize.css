@@ -1867,6 +1867,11 @@
   color: #ff3d00 !important;
 }
 
+.chip-custom {
+  border-style: solid;
+  border-color: #000;
+}
+
 .deep-orange.accent-4 {
   background-color: #dd2c00 !important;
 }
