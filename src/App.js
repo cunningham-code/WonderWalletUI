@@ -39,21 +39,90 @@ class App extends Component {
   render() {
     if(this.state.screen === 0) {
       return (
-        <div>
-          <h1>Upload your keystore</h1>
-          <input type="file" id="myFile"></input>
-          <input type="password" name="psw"></input>
-          <button onClick={() => this.setState({screen: 2}) }>Submit</button>
-          <p onClick={() => this.setState({screen: 1}) }>Create A Keystore</p>
-        </div>
+        <div style={{marginTop: 50}}>
+            <div className="row topRow center-align">
+                <div className="wonder center-align">W&#0246;nderWallet</div>
+                <div className="tagline center-align">It is time to blockchain human again</div>
+            </div>
+
+            <div className="row bottomRow">
+              <div className="container center-align">
+                <h4>Get a Keystore</h4>
+                <form action="#">
+                  <div className="row formRow">
+                    <div className="col m3"></div>
+                    <div className="input-field col s12 m6">
+                      <i className="material-icons prefix">lock</i>
+                      <input id="password" type="password" className="validate"></input>
+                      <label for="password">Password</label>
+                    </div>
+                  </div>
+                    <button className="btn waves-effect waves-light" type="submit" name="action">Generate My Keystore</button>
+                </form>
+
+                <div className="preloader-wrapper active hide">
+                  <div className="spinner-layer spinner-red-only">
+                    <div className="circle-clipper left">
+                      <div className="circle">
+                      </div>
+                    </div>
+                    <div className="gap-patch">
+                      <div className="circle">
+                      </div>
+                    </div>
+                      <div className="circle-clipper right">
+                        <div className="circle">
+                        </div>
+                      </div>
+                  </div>
+                </div>
+
+                <div className="container hide">
+                  <a href="/" download className="waves-effect waves-light btn-large"><i className="material-icons">file_download</i>Download My Keystore</a>
+                </div>
+
+                <h5 onClick={() => this.setState({screen: 1}) }>Upload an existing keystore</h5>
+
+              </div>
+            </div>
+            </div>
       );
     } else if(this.state.screen === 1) {
       return (
-        <div>
-          <h1>Create a keystore</h1>
-          <input type="password" name="psw"></input>
-          <button onClick={() => this.setState({screen: 2})}>Create Keystore</button>
-          <p onClick={() => this.setState({screen: 0}) }>Upload A Keystore</p>
+        <div style={{marginTop: 50}}>
+        <div className="row topRow center-align">
+          <div className="wonder center-align">W&#0246;nderWallet</div>
+          <div className="tagline center-align">It is time to blockchain human again</div>
+        </div>
+        <div className="row bottomRow">
+          <div className="container center-align">
+            <h4>Upload a Keystore</h4>
+            <form action="#">
+              <div className="row formRow">
+                <div className="col m3"></div>
+                <div className="col s12 m6 file-field input-field">
+                  <div className="btn">
+                    <span>File</span>
+                    <input id="file" type="file"></input>
+                  </div>
+                  <div className="file-path-wrapper">
+                    <input id="filename" className="file-path validate" type="text" value="Upload Keystore Here"></input>
+                  </div>
+                </div>
+              </div>
+              <div className="row formRow">
+                <div className="col m3"></div>
+                <div className="input-field col s12 m6">
+                  <i className="material-icons prefix">lock_open</i>
+                  <input id="password" type="password" className="validate"></input>
+                  <label for="password">Password</label>
+                </div>
+              </div>
+                <button className="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+            </form>
+            <h5 onClick={() => this.setState({screen: 0}) }>Create A Keystore</h5>
+          </div>
+        </div>
         </div>
       );
     } else {
@@ -62,16 +131,20 @@ class App extends Component {
           <div className="row topRow center-align">
             <div className="wonder center-align">W&#0246;nderWallet</div>
             <div className="tagline center-align">It is time to blockchain human again</div>
-            <button onClick={() => this.setState({screen: 0}) }>Sign Out</button>
+            <a className="waves-effect btn-flat className=y-btn" onClick={() => this.setState({screen: 0}) }>Sign Out</a>
           </div>
-          <div className="row bottomRow">
+          <div className="scrollmenu">
+            <Favorites favoritesArray={ favoritesArray } />
+          </div>
+          <div className="row fav-row">
+            <ul className="collection with-header col s12 center-align sideBar">
 
-          <hr className="divider"></hr>
-          	<ul className="collection with-header col s12 m4 center-align sideBar">
-              <li className="collection-header"><h4>Favorites</h4></li>
-              <Favorites favoritesArray={ favoritesArray } />
             </ul>
+          </div>
+          <div className="row profile-row">
             <Profile user={ Userr } />
+          </div>
+          <div className="row form-row">
             <div className="row col s12 m8">
               <hr></hr>
               <h4>Make a Payment:</h4>
