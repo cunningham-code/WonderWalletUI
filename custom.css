@@ -2,6 +2,13 @@ body {
 	height: 100vh;
 }
 
+.completeTrans {
+	width: 90% !important;
+	height:auto;
+	margin-bottom: 3rem;
+}
+
+
 .friendRow {
 	margin-bottom: 0px;
 }
@@ -188,8 +195,8 @@ ul::-webkit-scrollbar-thumb {
 }
 
 .finalForm {
-	margin-bottom: .2rem;
-	margin-top: .2rem;
+	margin-bottom: .5rem;
+	margin-top: .5rem;
 }
 
 .myinformation {
