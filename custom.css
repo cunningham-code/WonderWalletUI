@@ -42,11 +42,13 @@ body {
 .logo {
 	background-color:transparent;
 	width:100% !important;
+	margin-top: .75rem;
 }
 
 .logoSpec {
 	background-color:white;
 	width:100% !important;
+	margin-top: .75rem;
 }
 
 .bottomRow {
@@ -168,13 +170,13 @@ ul::-webkit-scrollbar-thumb {
 	color:white;
 	border-radius:.5rem;
 	border:.1rem solid white;
-	margin-bottom: 0px;
 	cursor: pointer;
 }
 
 .description {
 	height: 2.5rem;
 	font-size: 15px;
+	margin-top:.2rem;
 }
 
 .finalForm {
